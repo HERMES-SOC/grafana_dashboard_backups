@@ -1,0 +1,843 @@
+{
+  "meta": {
+    "type": "db",
+    "canSave": true,
+    "canEdit": true,
+    "canAdmin": true,
+    "canStar": true,
+    "canDelete": true,
+    "slug": "swpc-aws-timestream",
+    "url": "/d/OYduJQX7k/swpc-aws-timestream",
+    "expires": "0001-01-01T00:00:00Z",
+    "created": "2022-05-22T21:08:23Z",
+    "updated": "2022-07-21T18:43:42Z",
+    "updatedBy": "ehsteve",
+    "createdBy": "admin",
+    "version": 16,
+    "hasAcl": false,
+    "isFolder": false,
+    "folderId": 0,
+    "folderUid": "",
+    "folderTitle": "General",
+    "folderUrl": "",
+    "provisioned": false,
+    "provisionedExternalId": "",
+    "annotationsPermissions": {
+      "dashboard": {
+        "canAdd": true,
+        "canEdit": true,
+        "canDelete": true
+      },
+      "organization": {
+        "canAdd": true,
+        "canEdit": true,
+        "canDelete": true
+      }
+    },
+    "publicDashboardAccessToken": "",
+    "publicDashboardUid": "",
+    "publicDashboardEnabled": false
+  },
+  "dashboard": {
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 1,
+    "id": 1,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "alert": {
+          "alertRuleTags": {},
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [
+                  1e-05
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "and"
+              },
+              "query": {
+                "params": [
+                  "A",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "avg"
+              },
+              "type": "query"
+            }
+          ],
+          "executionErrorState": "keep_state",
+          "for": "5m",
+          "frequency": "1m",
+          "handler": 1,
+          "message": "M class flare",
+          "name": "GOES XRS (Long 1-8 Angstrom) alert",
+          "noDataState": "keep_state",
+          "notifications": []
+        },
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "stepBefore",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "log": 10,
+                "type": "log"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "max": 0.01,
+            "min": 1e-08,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "sci"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "measure_value::double"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "#C4162A",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "__systemRef": "hideSeriesFrom",
+              "matcher": {
+                "id": "byNames",
+                "options": {
+                  "mode": "exclude",
+                  "names": [
+                    "measure_value::double"
+                  ],
+                  "prefix": "All except:",
+                  "readOnly": true
+                }
+              },
+              "properties": [
+                {
+                  "id": "custom.hideFrom",
+                  "value": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "id": 4,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "hidden",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "8.5.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "measure": "",
+            "rawQuery": "SELECT time, measure_value::double FROM sampleDB.http\nWHERE measure_name = 'observed_flux' AND energy = '0.1-0.8nm'\nORDER BY time DESC",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [
+          {
+            "colorMode": "critical",
+            "op": "gt",
+            "value": 1e-05,
+            "visible": true
+          }
+        ],
+        "title": "GOES XRS (Long 1-8 Angstrom)",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "stepBefore",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "sci"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "measure_value::double"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        },
+        "id": 6,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "hidden",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "measure": "",
+            "rawQuery": "SELECT time, measure_value::double FROM sampleDB.http\nWHERE measure_name = 'observed_flux' AND energy = '0.05-0.4nm'\nORDER BY time DESC",
+            "refId": "A"
+          }
+        ],
+        "title": "GOES XRS (Short 0.5 to 5 Angstrom)",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "from": 0.0001,
+                  "result": {
+                    "color": "dark-red",
+                    "index": 0,
+                    "text": "X"
+                  },
+                  "to": 0.001
+                },
+                "type": "range"
+              },
+              {
+                "options": {
+                  "from": 1e-05,
+                  "result": {
+                    "color": "dark-orange",
+                    "index": 1,
+                    "text": "M"
+                  },
+                  "to": 0.0001
+                },
+                "type": "range"
+              },
+              {
+                "options": {
+                  "from": 1e-06,
+                  "result": {
+                    "color": "dark-yellow",
+                    "index": 2,
+                    "text": "C"
+                  },
+                  "to": 1e-05
+                },
+                "type": "range"
+              },
+              {
+                "options": {
+                  "from": 1e-07,
+                  "result": {
+                    "color": "dark-green",
+                    "index": 3,
+                    "text": "B"
+                  },
+                  "to": 1e-06
+                },
+                "type": "range"
+              },
+              {
+                "options": {
+                  "from": 1e-08,
+                  "result": {
+                    "color": "dark-blue",
+                    "index": 4,
+                    "text": "A"
+                  },
+                  "to": 1e-07
+                },
+                "type": "range"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 3,
+          "x": 0,
+          "y": 8
+        },
+        "id": 9,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.0.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "measure": "",
+            "rawQuery": "SELECT time, measure_value::double FROM sampleDB.http\nWHERE measure_name = 'observed_flux' AND energy = '0.1-0.8nm'\nORDER BY time DESC\nLIMIT 1",
+            "refId": "A"
+          }
+        ],
+        "title": "GOES Class",
+        "transformations": [],
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 9,
+          "x": 3,
+          "y": 8
+        },
+        "id": 10,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "/^time$/",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.0.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "measure": "",
+            "rawQuery": "SELECT time, measure_value::double FROM sampleDB.http\nWHERE measure_name = 'observed_flux' AND energy = '0.05-0.4nm'\nORDER BY time DESC\nLIMIT 1",
+            "refId": "A"
+          }
+        ],
+        "title": "Time of last point",
+        "transformations": [],
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "stepBefore",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "max": 5,
+            "min": -5,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byFrameRefID",
+                "options": "Bz_gse"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Bz gse"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byFrameRefID",
+                "options": "Bx_gse"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Bx gse"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byFrameRefID",
+                "options": "By_gse"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "By gse"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        },
+        "id": 13,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "database": "\"sampleDB\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "measure": "bx_gse",
+            "rawQuery": "SELECT time, measure_value::double FROM sampleDB.http\nWHERE measure_name = 'bx_gse'\nORDER BY time DESC",
+            "refId": "Bx_gse",
+            "table": "\"http\""
+          },
+          {
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "hide": false,
+            "measure": "",
+            "rawQuery": "SELECT time, measure_value::double FROM sampleDB.http\r\nWHERE measure_name = 'by_gse'\r\nORDER BY time DESC",
+            "refId": "By_gse"
+          },
+          {
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "hide": false,
+            "measure": "",
+            "rawQuery": "SELECT time, measure_value::double FROM sampleDB.http\r\nWHERE measure_name = 'bz_gse'\r\nORDER BY time DESC",
+            "refId": "Bz_gse"
+          }
+        ],
+        "title": "DISCOVR Mag (GSE)",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "XbbA88unk"
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 13
+        },
+        "id": 16,
+        "options": {
+          "limit": 10,
+          "navigateAfter": "10m",
+          "navigateBefore": "10m",
+          "onlyFromThisDashboard": false,
+          "onlyInTimeRange": false,
+          "showTags": true,
+          "showTime": true,
+          "showUser": true
+        },
+        "targets": [
+          {
+            "alias": "",
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "XbbA88unk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "matchExact": true,
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average"
+          }
+        ],
+        "title": "Annotations",
+        "type": "annolist"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "stepBefore",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 16
+        },
+        "id": 14,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "database": "\"sampleDB\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "measure": "bx_gse",
+            "rawQuery": "SELECT time, measure_value::double FROM sampleDB.http\nWHERE measure_name = 'bt'\nORDER BY time DESC",
+            "refId": "Bt",
+            "table": "\"http\""
+          }
+        ],
+        "title": "DISCOVR Mag (Bt)",
+        "type": "timeseries"
+      }
+    ],
+    "refresh": false,
+    "schemaVersion": 36,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-3h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "SWPC (AWS TimeStream)",
+    "uid": "OYduJQX7k",
+    "version": 16,
+    "weekStart": ""
+  }
+}
