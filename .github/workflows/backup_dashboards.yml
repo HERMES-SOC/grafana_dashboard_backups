@@ -1,0 +1,41 @@
+# This is a scheduled workflow that backs up Grafana Dashboards
+# Requires the Grafana API URL and Grafana API Token to be saved as a GitHub Secret
+
+name: Backup Grafana Dashboards
+
+# Controls when the workflow will run
+on:
+  schedule:
+  - cron: "53 17 * * *"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    env:
+      GRAFANA_TOKEN: ${{secrets.GRAFANA_TOKEN}}
+      GRAFANA_URL: ${{secrets.GRAFANA_URL}}
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      
+      - name: Install Dependencies
+        run: sudo apt install moreutils -y
+        
+      - name: Run Backup Script
+        run: source backup_dashboards.sh
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4.2.0
+        with:
+          title: '[Backup Bot] ${{env.CREATED_NUMBER}} Created, ${{env.MODIFIED_NUMBER}} Modified, ${{env.DELETED_NUMBER}} Deleted Dashboards'
+          body: '<h2>Grafana Dashboard Changes:</h2><br/>${{env.CREATED_INFO}}${{env.MODIFIED_INFO}}${{env.DELETED_INFO}}'
