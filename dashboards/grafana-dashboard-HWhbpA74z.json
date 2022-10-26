@@ -1,0 +1,3960 @@
+{
+  "meta": {
+    "type": "db",
+    "canSave": true,
+    "canEdit": true,
+    "canAdmin": true,
+    "canStar": true,
+    "canDelete": true,
+    "slug": "sdc-processing",
+    "url": "/d/HWhbpA74z/sdc-processing",
+    "expires": "0001-01-01T00:00:00Z",
+    "created": "2022-09-20T14:37:25Z",
+    "updated": "2022-10-26T17:45:50Z",
+    "updatedBy": "dbarrous",
+    "createdBy": "ehsteve",
+    "version": 71,
+    "hasAcl": false,
+    "isFolder": false,
+    "folderId": 16,
+    "folderUid": "t4CNOA74z",
+    "folderTitle": "SOC",
+    "folderUrl": "/dashboards/f/t4CNOA74z/soc",
+    "provisioned": false,
+    "provisionedExternalId": "",
+    "annotationsPermissions": {
+      "dashboard": {
+        "canAdd": true,
+        "canEdit": true,
+        "canDelete": true
+      },
+      "organization": {
+        "canAdd": true,
+        "canEdit": true,
+        "canDelete": true
+      }
+    },
+    "publicDashboardAccessToken": "",
+    "publicDashboardUid": "",
+    "publicDashboardEnabled": false
+  },
+  "dashboard": {
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "description": "This is a dashboard to track the SDC File Processing Pipeline",
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 1,
+    "id": 17,
+    "links": [],
+    "liveNow": true,
+    "panels": [
+      {
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "XbbA88unk"
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 5,
+          "x": 0,
+          "y": 0
+        },
+        "id": 33,
+        "options": {
+          "code": {
+            "language": "plaintext",
+            "showLineNumbers": false,
+            "showMiniMap": false
+          },
+          "content": "\n# Files Sorted\nOf Files Put/Sorted to Each Bucket within the last 24 hours.\n",
+          "mode": "markdown"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "XbbA88unk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average"
+          }
+        ],
+        "type": "text"
+      },
+      {
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "XbbA88unk"
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 19,
+          "x": 5,
+          "y": 0
+        },
+        "id": 35,
+        "options": {
+          "code": {
+            "language": "plaintext",
+            "showLineNumbers": false,
+            "showMiniMap": false
+          },
+          "content": "\n# Files Processed\nOf Files Processed in Each Instrument Bucket within the last 24 hours",
+          "mode": "markdown"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "XbbA88unk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average"
+          }
+        ],
+        "type": "text"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "light-green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 5,
+          "x": 0,
+          "y": 3
+        },
+        "id": 31,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND (destination_bucket='swsoc-incoming' AND action_type='PUT') ORDER BY time DESC \n\n",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "Incoming",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "XbbA88unk"
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 4,
+          "x": 5,
+          "y": 3
+        },
+        "id": 57,
+        "options": {
+          "code": {
+            "language": "plaintext",
+            "showLineNumbers": false,
+            "showMiniMap": false
+          },
+          "content": "\n\n### Total Processed from Level: `l0` -> `l1`\n",
+          "mode": "markdown"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "XbbA88unk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average"
+          }
+        ],
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "XbbA88unk"
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 4,
+          "x": 12,
+          "y": 3
+        },
+        "id": 67,
+        "options": {
+          "code": {
+            "language": "plaintext",
+            "showLineNumbers": false,
+            "showMiniMap": false
+          },
+          "content": "\n\n\n\n### Total Processed from Level: `l1` -> `ql`\n",
+          "mode": "markdown"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "XbbA88unk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average"
+          }
+        ],
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "XbbA88unk"
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 5,
+          "x": 18,
+          "y": 3
+        },
+        "id": 53,
+        "options": {
+          "code": {
+            "language": "plaintext",
+            "showLineNumbers": false,
+            "showMiniMap": false
+          },
+          "content": "\n### Total Across all Instrument Buckets:\n",
+          "mode": "markdown"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "XbbA88unk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average"
+          }
+        ],
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 5,
+          "y": 5
+        },
+        "id": 61,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-nemisis' AND destination_bucket='hermes-nemisis' AND new_file_key LIKE 'l1/%' ORDER BY time ",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "NEMISIS",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 8,
+          "y": 5
+        },
+        "id": 59,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-spani' AND destination_bucket='hermes-spani' AND new_file_key LIKE 'l1/%' ORDER BY time ",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "SPAN-I",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 12,
+          "y": 5
+        },
+        "id": 69,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-nemisis' AND destination_bucket='hermes-nemisis' AND new_file_key LIKE 'ql/%' ORDER BY time ",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "NEMISIS",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 15,
+          "y": 5
+        },
+        "id": 71,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-spani' AND destination_bucket='hermes-spani' AND new_file_key LIKE 'ql/%' ORDER BY time ",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "SPAN-I",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 18,
+          "y": 5
+        },
+        "id": 37,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-nemisis' AND destination_bucket='hermes-nemisis' ORDER BY time ",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "NEMISIS",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 21,
+          "y": 5
+        },
+        "id": 39,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-spani' AND destination_bucket='hermes-spani' ORDER BY time ",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "SPAN-I",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 2,
+          "x": 0,
+          "y": 7
+        },
+        "id": 15,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='swsoc-incoming' AND destination_bucket='hermes-nemisis'",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "NEMISIS",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 3,
+          "x": 2,
+          "y": 7
+        },
+        "id": 19,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='swsoc-incoming' AND destination_bucket='hermes-spani'",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "SPAN-I",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 5,
+          "y": 9
+        },
+        "id": 55,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-eea' AND destination_bucket='hermes-eea' AND new_file_key LIKE 'l1/%' ORDER BY time ",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "EEA",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 8,
+          "y": 9
+        },
+        "id": 63,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-merit' AND destination_bucket='hermes-merit' AND new_file_key LIKE 'l1/%' ORDER BY time ",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "MERIT",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 12,
+          "y": 9
+        },
+        "id": 73,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-eea' AND destination_bucket='hermes-eea' AND new_file_key LIKE 'ql/%' ORDER BY time ",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "EEA",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 15,
+          "y": 9
+        },
+        "id": 65,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-merit' AND destination_bucket='hermes-merit' AND new_file_key LIKE 'ql/%' ORDER BY time ",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "MERIT",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 18,
+          "y": 9
+        },
+        "id": 41,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-eea' AND destination_bucket='hermes-eea' ORDER BY time ",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "EEA",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 21,
+          "y": 9
+        },
+        "id": 43,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-merit' AND destination_bucket='hermes-merit' ORDER BY time ",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "MERIT",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 2,
+          "x": 0,
+          "y": 10
+        },
+        "id": 17,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='swsoc-incoming' AND destination_bucket='hermes-eea'",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "EEA",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 3,
+          "x": 2,
+          "y": 10
+        },
+        "id": 21,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='swsoc-incoming' AND destination_bucket='hermes-merit'",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "MERIT",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "fixedColor": "semi-dark-red",
+              "mode": "fixed"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 2,
+          "x": 0,
+          "y": 13
+        },
+        "id": 23,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND new_file_key LIKE 'duplicate_file_with_attempted_timestamps/%'",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "Duplicates",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "fixedColor": "semi-dark-red",
+              "mode": "fixed"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 3,
+          "x": 2,
+          "y": 13
+        },
+        "id": 25,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "count"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND new_file_key LIKE 'invalid_file_with_attempted_timestamps/%' AND action_type='PUT'",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "Invalid",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "semi-dark-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 6,
+          "x": 5,
+          "y": 13
+        },
+        "id": 99,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "/.*/",
+            "limit": 1,
+            "values": true
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT new_file_key FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE new_file_key LIKE 'l1/%' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "Last File Processed to Level 1 (l1)",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "semi-dark-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 6,
+          "x": 12,
+          "y": 13
+        },
+        "id": 101,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "/.*/",
+            "limit": 1,
+            "values": true
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT new_file_key FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE new_file_key LIKE 'ql/%' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "Last File Processed to Quick Look (ql)",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "displayMode": "auto",
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "source_bucket"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 167
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "time"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 186
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 18,
+          "y": 13
+        },
+        "id": 51,
+        "options": {
+          "footer": {
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND source_bucket='hermes-spani' AND destination_bucket='hermes-spani' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "SPAN-I Proccesed Files",
+        "transparent": true,
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "displayMode": "auto",
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "source_bucket"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 167
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "time"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 93
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "original_file"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 145
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 5,
+          "y": 15
+        },
+        "id": 87,
+        "options": {
+          "footer": {
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'l1/%' AND source_bucket='hermes-spani' AND destination_bucket='hermes-spani' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "SPAN-I Proccesed Files",
+        "transparent": true,
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "displayMode": "auto",
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "source_bucket"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 167
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "time"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 98
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "original_file"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 73
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 12,
+          "y": 15
+        },
+        "id": 79,
+        "options": {
+          "footer": {
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'ql/%' AND source_bucket='hermes-spani' AND destination_bucket='hermes-spani' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "SPAN-I Proccesed Files",
+        "transparent": true,
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "semi-dark-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 2,
+          "w": 5,
+          "x": 0,
+          "y": 16
+        },
+        "id": 97,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "/.*/",
+            "limit": 2,
+            "values": true
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT file_key FROM $__database.$__table ORDER BY time DESC LIMIT 1",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "Last File Synced to Incoming",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "displayMode": "auto",
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "source_bucket"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 167
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "time"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 104
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "original_file"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 145
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 15,
+          "w": 5,
+          "x": 0,
+          "y": 18
+        },
+        "id": 95,
+        "options": {
+          "footer": {
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT time, file_key as synced_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND destination_bucket='swsoc-incoming' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "Files Synced to Incoming",
+        "transparent": true,
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "displayMode": "auto",
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "source_bucket"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 167
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "time"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 186
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 18,
+          "y": 18
+        },
+        "id": 45,
+        "options": {
+          "footer": {
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND source_bucket='hermes-nemisis' AND destination_bucket='hermes-nemisis' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "NEMISIS Proccesed Files",
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "displayMode": "auto",
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "source_bucket"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 167
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "time"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 88
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "original_file"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 66
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 5,
+          "y": 20
+        },
+        "id": 89,
+        "options": {
+          "footer": {
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'l1/%' AND source_bucket='hermes-nemisis' AND destination_bucket='hermes-nemisis' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "NEMISIS Proccesed Files",
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "displayMode": "auto",
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "source_bucket"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 167
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "time"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 186
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 12,
+          "y": 20
+        },
+        "id": 81,
+        "options": {
+          "footer": {
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'ql/%' AND source_bucket='hermes-nemisis' AND destination_bucket='hermes-nemisis' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "NEMISIS Proccesed Files",
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "displayMode": "auto",
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "source_bucket"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 167
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "time"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 179
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 18,
+          "y": 23
+        },
+        "id": 47,
+        "options": {
+          "footer": {
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND source_bucket='hermes-merit' AND destination_bucket='hermes-merit' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "MERIT Proccesed Files",
+        "transparent": true,
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "displayMode": "auto",
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "source_bucket"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 167
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "time"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 95
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "original_file"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 56
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 5,
+          "y": 24
+        },
+        "id": 91,
+        "options": {
+          "footer": {
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'l1/%' AND source_bucket='hermes-merit' AND destination_bucket='hermes-merit' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "MERIT Proccesed Files",
+        "transparent": true,
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "displayMode": "auto",
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "source_bucket"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 167
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "time"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 179
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 12,
+          "y": 24
+        },
+        "id": 83,
+        "options": {
+          "footer": {
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'ql/%' AND source_bucket='hermes-merit' AND destination_bucket='hermes-merit' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "MERIT Proccesed Files",
+        "transparent": true,
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "displayMode": "auto",
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "source_bucket"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 167
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "time"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 96
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "original_file"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 16
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 5,
+          "y": 29
+        },
+        "id": 93,
+        "options": {
+          "footer": {
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": [
+            {
+              "desc": true,
+              "displayName": "processed_file"
+            }
+          ]
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'l1/%' AND source_bucket='hermes-eea' AND destination_bucket='hermes-eea' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "EEA Proccesed Files",
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "displayMode": "auto",
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "source_bucket"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 167
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "time"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 179
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 12,
+          "y": 29
+        },
+        "id": 85,
+        "options": {
+          "footer": {
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'ql/%' AND source_bucket='hermes-eea' AND destination_bucket='hermes-eea' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "EEA Proccesed Files",
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-timestream-datasource",
+          "uid": "2OnW1wXnk"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "displayMode": "auto",
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "source_bucket"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 167
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "time"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 179
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 18,
+          "y": 29
+        },
+        "id": 49,
+        "options": {
+          "footer": {
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.2.1",
+        "targets": [
+          {
+            "database": "\"sdc_aws_logs\"",
+            "datasource": {
+              "type": "grafana-timestream-datasource",
+              "uid": "2OnW1wXnk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": true,
+            "measure": "timestamp",
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND source_bucket='hermes-eea' AND destination_bucket='hermes-eea' ORDER BY time DESC",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average",
+            "table": "\"sdc_aws_s3_bucket_log_table\""
+          }
+        ],
+        "title": "EEA Proccesed Files",
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "loki",
+          "uid": "7894hLRVk"
+        },
+        "description": "",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 33
+        },
+        "id": 8,
+        "options": {
+          "dedupStrategy": "none",
+          "enableLogDetails": true,
+          "prettifyLogMessage": false,
+          "showCommonLabels": false,
+          "showLabels": false,
+          "showTime": false,
+          "sortOrder": "Descending",
+          "wrapLogMessage": false
+        },
+        "pluginVersion": "9.0.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "loki",
+              "uid": "7894hLRVk"
+            },
+            "editorMode": "builder",
+            "expr": "{__aws_cloudwatch_log_group=\"/aws/lambda/aws_sdc_sorting_lambda_function\"} |~ `(\\[INFO\\])|(\\[WARNING\\])|(\\[ERROR\\])`",
+            "hide": false,
+            "queryType": "range",
+            "refId": "B"
+          }
+        ],
+        "title": "Sorting Logs",
+        "type": "logs"
+      },
+      {
+        "datasource": {
+          "type": "loki",
+          "uid": "7894hLRVk"
+        },
+        "description": "",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 33
+        },
+        "id": 27,
+        "options": {
+          "dedupStrategy": "none",
+          "enableLogDetails": true,
+          "prettifyLogMessage": false,
+          "showCommonLabels": false,
+          "showLabels": false,
+          "showTime": false,
+          "sortOrder": "Descending",
+          "wrapLogMessage": false
+        },
+        "pluginVersion": "9.0.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "loki",
+              "uid": "7894hLRVk"
+            },
+            "editorMode": "builder",
+            "expr": "{__aws_cloudwatch_log_group=\"/aws/lambda/sdc_aws_processing_lambda_function\"} |~ `(\\[INFO\\])|(\\[WARNING\\])|(\\[ERROR\\])`",
+            "hide": false,
+            "queryType": "range",
+            "refId": "B"
+          }
+        ],
+        "title": "Processing Logs",
+        "type": "logs"
+      },
+      {
+        "datasource": {
+          "type": "loki",
+          "uid": "7894hLRVk"
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 41
+        },
+        "id": 4,
+        "options": {
+          "dedupStrategy": "none",
+          "enableLogDetails": true,
+          "prettifyLogMessage": false,
+          "showCommonLabels": false,
+          "showLabels": false,
+          "showTime": false,
+          "sortOrder": "Descending",
+          "wrapLogMessage": false
+        },
+        "pluginVersion": "9.0.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "loki",
+              "uid": "7894hLRVk"
+            },
+            "editorMode": "builder",
+            "expr": "{__aws_cloudwatch_log_group=\"/aws/lambda/aws_sdc_sorting_lambda_function\"} |= `[ERROR]`",
+            "hide": false,
+            "queryType": "range",
+            "refId": "B"
+          }
+        ],
+        "title": "Errors in Sorting Logs",
+        "type": "logs"
+      },
+      {
+        "datasource": {
+          "type": "loki",
+          "uid": "7894hLRVk"
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 41
+        },
+        "id": 29,
+        "options": {
+          "dedupStrategy": "none",
+          "enableLogDetails": true,
+          "prettifyLogMessage": false,
+          "showCommonLabels": false,
+          "showLabels": false,
+          "showTime": false,
+          "sortOrder": "Descending",
+          "wrapLogMessage": false
+        },
+        "pluginVersion": "9.0.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "loki",
+              "uid": "7894hLRVk"
+            },
+            "editorMode": "builder",
+            "expr": "{__aws_cloudwatch_log_group=\"/aws/lambda/sdc_aws_processing_lambda_function\"} |~ `(\\[ERROR\\])`",
+            "hide": false,
+            "queryType": "range",
+            "refId": "B"
+          }
+        ],
+        "title": "Errors in Processing Logs",
+        "type": "logs"
+      },
+      {
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "XbbA88unk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "bars",
+              "fillOpacity": 100,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 12,
+          "x": 0,
+          "y": 49
+        },
+        "id": 2,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "XbbA88unk"
+            },
+            "dimensions": {
+              "FunctionName": "aws_sdc_sorting_lambda_function"
+            },
+            "expression": "",
+            "id": "",
+            "label": "Sorting",
+            "matchExact": true,
+            "metricEditorMode": 0,
+            "metricName": "Invocations",
+            "metricQueryType": 0,
+            "namespace": "AWS/Lambda",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Maximum"
+          },
+          {
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "XbbA88unk"
+            },
+            "dimensions": {
+              "FunctionName": "sdc_aws_processing_lambda_function"
+            },
+            "expression": "",
+            "hide": false,
+            "id": "",
+            "label": "processing",
+            "matchExact": true,
+            "metricEditorMode": 0,
+            "metricName": "Invocations",
+            "metricQueryType": 0,
+            "namespace": "AWS/Lambda",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "B",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Maximum"
+          }
+        ],
+        "title": "Lambda Function Invocations",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "XbbA88unk"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 6,
+          "x": 12,
+          "y": 49
+        },
+        "id": 10,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "9.0.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "XbbA88unk"
+            },
+            "dimensions": {
+              "BucketName": "hermes-eea"
+            },
+            "expression": "",
+            "id": "",
+            "label": "",
+            "matchExact": false,
+            "metricEditorMode": 0,
+            "metricName": "NumberOfObjects",
+            "metricQueryType": 0,
+            "namespace": "AWS/S3",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Sum"
+          },
+          {
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "XbbA88unk"
+            },
+            "dimensions": {
+              "BucketName": "hermes-merit"
+            },
+            "expression": "",
+            "hide": false,
+            "id": "",
+            "label": "",
+            "matchExact": false,
+            "metricEditorMode": 0,
+            "metricName": "NumberOfObjects",
+            "metricQueryType": 0,
+            "namespace": "AWS/S3",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "B",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Maximum"
+          },
+          {
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "XbbA88unk"
+            },
+            "dimensions": {
+              "BucketName": "hermes-nemisis"
+            },
+            "expression": "",
+            "hide": false,
+            "id": "",
+            "label": "",
+            "matchExact": false,
+            "metricEditorMode": 0,
+            "metricName": "NumberOfObjects",
+            "metricQueryType": 0,
+            "namespace": "AWS/S3",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "C",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Maximum"
+          },
+          {
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "XbbA88unk"
+            },
+            "dimensions": {
+              "BucketName": "hermes-spani"
+            },
+            "expression": "",
+            "hide": false,
+            "id": "",
+            "label": "",
+            "matchExact": false,
+            "metricEditorMode": 0,
+            "metricName": "NumberOfObjects",
+            "metricQueryType": 0,
+            "namespace": "AWS/S3",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "D",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Maximum"
+          }
+        ],
+        "title": "Instr. buckets",
+        "type": "timeseries"
+      }
+    ],
+    "refresh": "15m",
+    "schemaVersion": 37,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "SDC Processing",
+    "uid": "HWhbpA74z",
+    "version": 71,
+    "weekStart": ""
+  }
+}
