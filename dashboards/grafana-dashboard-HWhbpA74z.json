@@ -10,10 +10,10 @@
     "url": "/d/HWhbpA74z/sdc-processing",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-09-20T14:37:25Z",
-    "updated": "2022-10-26T17:45:50Z",
+    "updated": "2022-10-31T16:14:18Z",
     "updatedBy": "dbarrous",
     "createdBy": "ehsteve",
-    "version": 71,
+    "version": 72,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 16,
@@ -87,7 +87,7 @@
             "showLineNumbers": false,
             "showMiniMap": false
           },
-          "content": "\n# Files Sorted\nOf Files Put/Sorted to Each Bucket within the last 24 hours.\n",
+          "content": "\n# Files Sorted\nNumber of Files Put/Sorted to Each Bucket within the last 24 hours.\n",
           "mode": "markdown"
         },
         "pluginVersion": "9.2.1",
@@ -2845,7 +2845,8 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green"
+                  "color": "green",
+                  "value": null
                 },
                 {
                   "color": "red",
@@ -2949,7 +2950,8 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green"
+                  "color": "green",
+                  "value": null
                 },
                 {
                   "color": "red",
@@ -3065,7 +3067,8 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green"
+                  "color": "green",
+                  "value": null
                 },
                 {
                   "color": "red",
@@ -3954,7 +3957,7 @@
     "timezone": "",
     "title": "SDC Processing",
     "uid": "HWhbpA74z",
-    "version": 71,
+    "version": 72,
     "weekStart": ""
   }
 }
