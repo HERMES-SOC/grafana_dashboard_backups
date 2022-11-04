@@ -10,10 +10,10 @@
     "url": "/d/HWhbpA74z/sdc-processing",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-09-20T14:37:25Z",
-    "updated": "2022-10-31T16:14:18Z",
+    "updated": "2022-11-04T18:18:30Z",
     "updatedBy": "dbarrous",
     "createdBy": "ehsteve",
-    "version": 72,
+    "version": 74,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 16,
@@ -2845,8 +2845,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -2950,8 +2949,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -3067,8 +3065,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -3957,7 +3954,7 @@
     "timezone": "",
     "title": "SDC Processing",
     "uid": "HWhbpA74z",
-    "version": 72,
+    "version": 74,
     "weekStart": ""
   }
 }
