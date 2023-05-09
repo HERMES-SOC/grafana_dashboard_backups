@@ -10,10 +10,10 @@
     "url": "/d/OYduJQX7k/swpc-aws-timestream",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-05-22T21:08:23Z",
-    "updated": "2022-07-21T18:43:42Z",
+    "updated": "2023-02-02T15:41:11Z",
     "updatedBy": "ehsteve",
     "createdBy": "admin",
-    "version": 16,
+    "version": 17,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -115,6 +115,8 @@
               "mode": "palette-classic"
             },
             "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
               "axisLabel": "",
               "axisPlacement": "auto",
               "barAlignment": 0,
@@ -209,8 +211,9 @@
         "options": {
           "legend": {
             "calcs": [],
-            "displayMode": "hidden",
-            "placement": "bottom"
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": false
           },
           "tooltip": {
             "mode": "single",
@@ -251,6 +254,8 @@
               "mode": "palette-classic"
             },
             "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
               "axisLabel": "",
               "axisPlacement": "auto",
               "barAlignment": 0,
@@ -322,8 +327,9 @@
         "options": {
           "legend": {
             "calcs": [],
-            "displayMode": "hidden",
-            "placement": "bottom"
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": false
           },
           "tooltip": {
             "mode": "single",
@@ -453,7 +459,7 @@
           },
           "textMode": "auto"
         },
-        "pluginVersion": "9.0.3",
+        "pluginVersion": "9.3.6",
         "targets": [
           {
             "datasource": {
@@ -518,7 +524,7 @@
           },
           "textMode": "auto"
         },
-        "pluginVersion": "9.0.3",
+        "pluginVersion": "9.3.6",
         "targets": [
           {
             "datasource": {
@@ -545,203 +551,8 @@
               "mode": "palette-classic"
             },
             "custom": {
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "stepBefore",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "max": 5,
-            "min": -5,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "none"
-          },
-          "overrides": [
-            {
-              "matcher": {
-                "id": "byFrameRefID",
-                "options": "Bz_gse"
-              },
-              "properties": [
-                {
-                  "id": "displayName",
-                  "value": "Bz gse"
-                }
-              ]
-            },
-            {
-              "matcher": {
-                "id": "byFrameRefID",
-                "options": "Bx_gse"
-              },
-              "properties": [
-                {
-                  "id": "displayName",
-                  "value": "Bx gse"
-                }
-              ]
-            },
-            {
-              "matcher": {
-                "id": "byFrameRefID",
-                "options": "By_gse"
-              },
-              "properties": [
-                {
-                  "id": "displayName",
-                  "value": "By gse"
-                }
-              ]
-            }
-          ]
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 12,
-          "x": 12,
-          "y": 8
-        },
-        "id": 13,
-        "options": {
-          "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom"
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "targets": [
-          {
-            "database": "\"sampleDB\"",
-            "datasource": {
-              "type": "grafana-timestream-datasource",
-              "uid": "2OnW1wXnk"
-            },
-            "measure": "bx_gse",
-            "rawQuery": "SELECT time, measure_value::double FROM sampleDB.http\nWHERE measure_name = 'bx_gse'\nORDER BY time DESC",
-            "refId": "Bx_gse",
-            "table": "\"http\""
-          },
-          {
-            "datasource": {
-              "type": "grafana-timestream-datasource",
-              "uid": "2OnW1wXnk"
-            },
-            "hide": false,
-            "measure": "",
-            "rawQuery": "SELECT time, measure_value::double FROM sampleDB.http\r\nWHERE measure_name = 'by_gse'\r\nORDER BY time DESC",
-            "refId": "By_gse"
-          },
-          {
-            "datasource": {
-              "type": "grafana-timestream-datasource",
-              "uid": "2OnW1wXnk"
-            },
-            "hide": false,
-            "measure": "",
-            "rawQuery": "SELECT time, measure_value::double FROM sampleDB.http\r\nWHERE measure_name = 'bz_gse'\r\nORDER BY time DESC",
-            "refId": "Bz_gse"
-          }
-        ],
-        "title": "DISCOVR Mag (GSE)",
-        "type": "timeseries"
-      },
-      {
-        "datasource": {
-          "type": "cloudwatch",
-          "uid": "XbbA88unk"
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 12,
-          "x": 0,
-          "y": 13
-        },
-        "id": 16,
-        "options": {
-          "limit": 10,
-          "navigateAfter": "10m",
-          "navigateBefore": "10m",
-          "onlyFromThisDashboard": false,
-          "onlyInTimeRange": false,
-          "showTags": true,
-          "showTime": true,
-          "showUser": true
-        },
-        "targets": [
-          {
-            "alias": "",
-            "datasource": {
-              "type": "cloudwatch",
-              "uid": "XbbA88unk"
-            },
-            "dimensions": {},
-            "expression": "",
-            "id": "",
-            "matchExact": true,
-            "metricEditorMode": 0,
-            "metricName": "",
-            "metricQueryType": 0,
-            "namespace": "",
-            "period": "",
-            "queryMode": "Metrics",
-            "refId": "A",
-            "region": "default",
-            "sqlExpression": "",
-            "statistic": "Average"
-          }
-        ],
-        "title": "Annotations",
-        "type": "annolist"
-      },
-      {
-        "datasource": {
-          "type": "grafana-timestream-datasource",
-          "uid": "2OnW1wXnk"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
               "axisLabel": "",
               "axisPlacement": "auto",
               "barAlignment": 0,
@@ -791,14 +602,15 @@
           "h": 8,
           "w": 12,
           "x": 12,
-          "y": 16
+          "y": 8
         },
         "id": 14,
         "options": {
           "legend": {
             "calcs": [],
             "displayMode": "list",
-            "placement": "bottom"
+            "placement": "bottom",
+            "showLegend": true
           },
           "tooltip": {
             "mode": "single",
@@ -820,10 +632,59 @@
         ],
         "title": "DISCOVR Mag (Bt)",
         "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "XbbA88unk"
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 13
+        },
+        "id": 16,
+        "options": {
+          "limit": 10,
+          "navigateAfter": "10m",
+          "navigateBefore": "10m",
+          "navigateToPanel": true,
+          "onlyFromThisDashboard": false,
+          "onlyInTimeRange": false,
+          "showTags": true,
+          "showTime": true,
+          "showUser": true
+        },
+        "targets": [
+          {
+            "alias": "",
+            "datasource": {
+              "type": "cloudwatch",
+              "uid": "XbbA88unk"
+            },
+            "dimensions": {},
+            "expression": "",
+            "id": "",
+            "matchExact": true,
+            "metricEditorMode": 0,
+            "metricName": "",
+            "metricQueryType": 0,
+            "namespace": "",
+            "period": "",
+            "queryMode": "Metrics",
+            "refId": "A",
+            "region": "default",
+            "sqlExpression": "",
+            "statistic": "Average"
+          }
+        ],
+        "title": "Annotations",
+        "type": "annolist"
       }
     ],
     "refresh": false,
-    "schemaVersion": 36,
+    "schemaVersion": 37,
     "style": "dark",
     "tags": [],
     "templating": {
@@ -837,7 +698,7 @@
     "timezone": "",
     "title": "SWPC (AWS TimeStream)",
     "uid": "OYduJQX7k",
-    "version": 16,
+    "version": 17,
     "weekStart": ""
   }
 }

@@ -6,14 +6,14 @@
     "canAdmin": true,
     "canStar": true,
     "canDelete": true,
-    "slug": "sdc-processing",
-    "url": "/d/HWhbpA74z/sdc-processing",
+    "slug": "dev-sdc-processing",
+    "url": "/d/DVhbpA74z/dev-sdc-processing",
     "expires": "0001-01-01T00:00:00Z",
-    "created": "2022-09-20T14:37:25Z",
-    "updated": "2023-05-08T15:42:19Z",
+    "created": "2023-05-08T15:29:35Z",
+    "updated": "2023-05-08T15:29:35Z",
     "updatedBy": "dbarrous",
-    "createdBy": "ehsteve",
-    "version": 88,
+    "createdBy": "dbarrous",
+    "version": 1,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 16,
@@ -65,7 +65,7 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 1,
-    "id": 17,
+    "id": 25,
     "links": [],
     "liveNow": true,
     "panels": [
@@ -178,8 +178,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "light-green",
-                  "value": null
+                  "color": "light-green"
                 }
               ]
             }
@@ -210,7 +209,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -227,12 +226,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND (destination_bucket='swsoc-incoming' AND action_type='PUT') ORDER BY time DESC \n\n",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND (destination_bucket='dev-swsoc-incoming' AND action_type='PUT') ORDER BY time DESC \n\n",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "Files recieved to Incoming",
@@ -398,8 +397,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -434,7 +432,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -451,12 +449,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-nemisis' AND destination_bucket='hermes-nemisis' AND new_file_key LIKE 'l1/%' ORDER BY time ",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-hermes-nemisis' AND destination_bucket='dev-hermes-nemisis' AND new_file_key LIKE 'l1/%' ORDER BY time ",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "NEMISIS",
@@ -477,8 +475,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -513,7 +510,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -530,12 +527,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-spani' AND destination_bucket='hermes-spani' AND new_file_key LIKE 'l1/%' ORDER BY time ",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-hermes-spani' AND destination_bucket='dev-hermes-spani' AND new_file_key LIKE 'l1/%' ORDER BY time ",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "SPAN-I",
@@ -557,8 +554,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -593,7 +589,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -610,12 +606,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-nemisis' AND destination_bucket='hermes-nemisis' AND new_file_key LIKE 'ql/%' ORDER BY time ",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-hermes-nemisis' AND destination_bucket='dev-hermes-nemisis' AND new_file_key LIKE 'ql/%' ORDER BY time ",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "NEMISIS",
@@ -636,8 +632,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -672,7 +667,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -689,12 +684,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-spani' AND destination_bucket='hermes-spani' AND new_file_key LIKE 'ql/%' ORDER BY time ",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-hermes-spani' AND destination_bucket='dev-hermes-spani' AND new_file_key LIKE 'ql/%' ORDER BY time ",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "SPAN-I",
@@ -716,8 +711,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -752,7 +746,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -769,12 +763,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-nemisis' AND destination_bucket='hermes-nemisis' ORDER BY time ",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-hermes-nemisis' AND destination_bucket='dev-hermes-nemisis' ORDER BY time ",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "NEMISIS",
@@ -795,8 +789,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -831,7 +824,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -848,12 +841,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-spani' AND destination_bucket='hermes-spani' ORDER BY time ",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-hermes-spani' AND destination_bucket='dev-hermes-spani' ORDER BY time ",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "SPAN-I",
@@ -875,8 +868,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -911,7 +903,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -928,12 +920,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='swsoc-incoming' AND destination_bucket='hermes-nemisis'",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-swsoc-incoming' AND destination_bucket='dev-hermes-nemisis'",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "NEMISIS",
@@ -954,8 +946,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -990,7 +981,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -1007,12 +998,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='swsoc-incoming' AND destination_bucket='hermes-spani'",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-swsoc-incoming' AND destination_bucket='dev-hermes-spani'",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "SPAN-I",
@@ -1034,8 +1025,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -1048,7 +1038,7 @@
         },
         "gridPos": {
           "h": 4,
-          "w": 2,
+          "w": 3,
           "x": 5,
           "y": 9
         },
@@ -1070,7 +1060,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -1087,12 +1077,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-eea' AND destination_bucket='hermes-eea' AND new_file_key LIKE 'l1/%' ORDER BY time ",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-hermes-eea' AND destination_bucket='dev-hermes-eea' AND new_file_key LIKE 'l1/%' ORDER BY time ",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "EEA",
@@ -1114,8 +1104,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -1150,7 +1139,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -1167,12 +1156,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-merit' AND destination_bucket='hermes-merit' AND new_file_key LIKE 'l1/%' ORDER BY time ",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-hermes-merit' AND destination_bucket='dev-hermes-merit' AND new_file_key LIKE 'l1/%' ORDER BY time ",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "MERIT",
@@ -1193,8 +1182,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -1229,7 +1217,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -1246,12 +1234,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-eea' AND destination_bucket='hermes-eea' AND new_file_key LIKE 'ql/%' ORDER BY time ",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-hermes-eea' AND destination_bucket='dev-hermes-eea' AND new_file_key LIKE 'ql/%' ORDER BY time ",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "EEA",
@@ -1273,8 +1261,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -1309,7 +1296,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -1326,12 +1313,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-merit' AND destination_bucket='hermes-merit' AND new_file_key LIKE 'ql/%' ORDER BY time ",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-hermes-merit' AND destination_bucket='dev-hermes-merit' AND new_file_key LIKE 'ql/%' ORDER BY time ",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "MERIT",
@@ -1352,8 +1339,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -1388,7 +1374,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -1405,12 +1391,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-eea' AND destination_bucket='hermes-eea' ORDER BY time ",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-hermes-eea' AND destination_bucket='dev-hermes-eea' ORDER BY time ",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "EEA",
@@ -1432,8 +1418,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -1468,7 +1453,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -1485,12 +1470,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='hermes-merit' AND destination_bucket='hermes-merit' ORDER BY time ",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-hermes-merit' AND destination_bucket='dev-hermes-merit' ORDER BY time ",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "MERIT",
@@ -1511,8 +1496,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -1547,7 +1531,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -1564,12 +1548,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='swsoc-incoming' AND destination_bucket='hermes-eea'",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-swsoc-incoming' AND destination_bucket='dev-hermes-eea'",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "EEA",
@@ -1591,8 +1575,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -1627,7 +1610,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -1644,12 +1627,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='swsoc-incoming' AND destination_bucket='hermes-merit'",
+            "rawQuery": "SELECT LICENSE README.md backup_dashboards.sh dashboards FROM $__database.$__table WHERE $__timeFilter AND source_bucket='dev-swsoc-incoming' AND destination_bucket='dev-hermes-merit'",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "MERIT",
@@ -1670,8 +1653,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "semi-dark-blue",
-                  "value": null
+                  "color": "semi-dark-blue"
                 }
               ]
             }
@@ -1704,7 +1686,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -1721,12 +1703,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT file_key FROM $__database.$__table WHERE $__timeFilter AND destination_bucket='swsoc-incoming' AND action_type='CREATE' ORDER BY time DESC LIMIT 1",
+            "rawQuery": "SELECT file_key FROM $__database.$__table WHERE $__timeFilter AND destination_bucket='dev-swsoc-incoming' AND action_type='PUT' ORDER BY time DESC LIMIT 1",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "Last File Synced to Incoming",
@@ -1747,8 +1729,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "semi-dark-blue",
-                  "value": null
+                  "color": "semi-dark-blue"
                 }
               ]
             }
@@ -1779,7 +1760,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -1796,12 +1777,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "-- SELECT new_file_key FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE new_file_key LIKE 'l1/%' ORDER BY time DESC\nSELECT LICENSE README.md backup_dashboards.sh dashboards FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE new_file_key LIKE 'l1/%' ORDER BY time DESC",
+            "rawQuery": "-- SELECT new_file_key FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE new_file_key LIKE 'l1/%' ORDER BY time DESC\nSELECT LICENSE README.md backup_dashboards.sh dashboards FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE new_file_key LIKE 'l1/%' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "Last File Processed to Level 1 (l1)",
@@ -1822,8 +1803,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "semi-dark-blue",
-                  "value": null
+                  "color": "semi-dark-blue"
                 }
               ]
             }
@@ -1856,7 +1836,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -1873,12 +1853,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT new_file_key FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE new_file_key LIKE 'ql/%' ORDER BY time DESC",
+            "rawQuery": "SELECT new_file_key FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE new_file_key LIKE 'ql/%' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "Last File Processed to Quick Look (ql)",
@@ -1904,8 +1884,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -1964,7 +1943,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -1981,12 +1960,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND source_bucket='hermes-spani' AND destination_bucket='hermes-spani' ORDER BY time DESC",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND source_bucket='dev-hermes-spani' AND destination_bucket='dev-hermes-spani' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "SPAN-I Proccesed Files",
@@ -2013,8 +1992,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -2085,7 +2063,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -2102,12 +2080,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT time, file_key as synced_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND destination_bucket='swsoc-incoming' AND action_type='CREATE' ORDER BY time DESC\n",
+            "rawQuery": "SELECT time, file_key as synced_file FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND destination_bucket='dev-swsoc-incoming' AND action_type='PUT' ORDER BY time DESC\n",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "Files Synced to Incoming",
@@ -2134,8 +2112,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -2206,7 +2183,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -2223,12 +2200,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'l1/%' AND source_bucket='hermes-spani' AND destination_bucket='hermes-spani' ORDER BY time DESC",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'l1/%' AND source_bucket='dev-hermes-spani' AND destination_bucket='dev-hermes-spani' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "SPAN-I Proccesed Files",
@@ -2255,8 +2232,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -2327,7 +2303,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -2344,12 +2320,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'ql/%' AND source_bucket='hermes-spani' AND destination_bucket='hermes-spani' ORDER BY time DESC",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'ql/%' AND source_bucket='dev-hermes-spani' AND destination_bucket='dev-hermes-spani' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "SPAN-I Proccesed Files",
@@ -2376,8 +2352,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -2436,7 +2411,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -2453,12 +2428,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND source_bucket='hermes-nemisis' AND destination_bucket='hermes-nemisis' ORDER BY time DESC",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND source_bucket='dev-hermes-nemisis' AND destination_bucket='dev-hermes-nemisis' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "NEMISIS Proccesed Files",
@@ -2484,8 +2459,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -2556,7 +2530,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -2573,12 +2547,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'l1/%' AND source_bucket='hermes-nemisis' AND destination_bucket='hermes-nemisis' ORDER BY time DESC",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'l1/%' AND source_bucket='dev-hermes-nemisis' AND destination_bucket='dev-hermes-nemisis' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "NEMISIS Proccesed Files",
@@ -2604,8 +2578,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -2664,7 +2637,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -2681,12 +2654,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'ql/%' AND source_bucket='hermes-nemisis' AND destination_bucket='hermes-nemisis' ORDER BY time DESC",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'ql/%' AND source_bucket='dev-hermes-nemisis' AND destination_bucket='dev-hermes-nemisis' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "NEMISIS Proccesed Files",
@@ -2712,8 +2685,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -2772,7 +2744,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -2789,12 +2761,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND source_bucket='hermes-merit' AND destination_bucket='hermes-merit' ORDER BY time DESC",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND source_bucket='dev-hermes-merit' AND destination_bucket='dev-hermes-merit' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "MERIT Proccesed Files",
@@ -2821,8 +2793,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -2910,7 +2881,7 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'l1/%' AND source_bucket='hermes-merit' AND destination_bucket='hermes-merit' ORDER BY time DESC",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'l1/%' AND source_bucket='dev-hermes-merit' AND destination_bucket='dev-hermes-merit' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
@@ -2942,8 +2913,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -3002,7 +2972,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -3019,12 +2989,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'ql/%' AND source_bucket='hermes-merit' AND destination_bucket='hermes-merit' ORDER BY time DESC",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'ql/%' AND source_bucket='dev-hermes-merit' AND destination_bucket='dev-hermes-merit' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "MERIT Proccesed Files",
@@ -3051,8 +3021,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -3128,7 +3097,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -3145,12 +3114,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'l1/%' AND source_bucket='hermes-eea' AND destination_bucket='hermes-eea' ORDER BY time DESC",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'l1/%' AND source_bucket='dev-hermes-eea' AND destination_bucket='dev-hermes-eea' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "EEA Proccesed Files",
@@ -3176,8 +3145,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -3236,7 +3204,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -3253,12 +3221,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'ql/%' AND source_bucket='hermes-eea' AND destination_bucket='hermes-eea' ORDER BY time DESC",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND new_file_key LIKE 'ql/%' AND source_bucket='dev-hermes-eea' AND destination_bucket='dev-hermes-eea' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "EEA Proccesed Files",
@@ -3284,8 +3252,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -3344,7 +3311,7 @@
         "pluginVersion": "9.5.1",
         "targets": [
           {
-            "database": "\"sdc_aws_logs\"",
+            "database": "\"dev-sdc_aws_logs\"",
             "datasource": {
               "type": "grafana-timestream-datasource",
               "uid": "2OnW1wXnk"
@@ -3361,12 +3328,12 @@
             "namespace": "",
             "period": "",
             "queryMode": "Metrics",
-            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"sdc_aws_logs\".\"sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND source_bucket='hermes-eea' AND destination_bucket='hermes-eea' ORDER BY time DESC",
+            "rawQuery": "SELECT time, file_key as original_file, new_file_key as processed_file FROM \"dev-sdc_aws_logs\".\"dev-sdc_aws_s3_bucket_log_table\" WHERE $__timeFilter AND source_bucket='dev-hermes-eea' AND destination_bucket='dev-hermes-eea' ORDER BY time DESC",
             "refId": "A",
             "region": "default",
             "sqlExpression": "",
             "statistic": "Average",
-            "table": "\"sdc_aws_s3_bucket_log_table\""
+            "table": "\"dev-sdc_aws_s3_bucket_log_table\""
           }
         ],
         "title": "EEA Proccesed Files",
@@ -3403,10 +3370,9 @@
               "uid": "7894hLRVk"
             },
             "editorMode": "code",
-            "expr": "{__aws_cloudwatch_log_group=\"/aws/lambda/aws_sdc_sorting_lambda_function\"} |~ `(\\[INFO\\])|(\\[WARNING\\])|(\\[ERROR\\])` != \"Error sending Slack Notification\"",
-            "hide": false,
+            "expr": "{__aws_cloudwatch_log_group=\"/aws/lambda/dev_aws_sdc_sorting_lambda_function\"} |~ `(\\[INFO\\])|(\\[WARNING\\])|(\\[ERROR\\])` != \"Error sending Slack Notification\"",
             "queryType": "range",
-            "refId": "B"
+            "refId": "A"
           }
         ],
         "title": "Sorting Logs",
@@ -3443,7 +3409,7 @@
               "uid": "7894hLRVk"
             },
             "editorMode": "code",
-            "expr": "{__aws_cloudwatch_log_group=\"/aws/lambda/sdc_aws_processing_lambda_function\"} |~ `(\\[INFO\\])|(\\[WARNING\\])|(\\[ERROR\\])` != \"Error sending Slack Notification\"",
+            "expr": "{__aws_cloudwatch_log_group=\"/aws/lambda/dev-sdc_aws_processing_lambda_function\"} |~ `(\\[INFO\\])|(\\[WARNING\\])|(\\[ERROR\\])` != \"Error sending Slack Notification\"",
             "hide": false,
             "queryType": "range",
             "refId": "B"
@@ -3482,7 +3448,7 @@
               "uid": "7894hLRVk"
             },
             "editorMode": "code",
-            "expr": "{__aws_cloudwatch_log_group=\"/aws/lambda/aws_sdc_sorting_lambda_function\"} |= `[ERROR]` != \"Error sending Slack Notification\"",
+            "expr": "{__aws_cloudwatch_log_group=\"/aws/lambda/dev_aws_sdc_sorting_lambda_function\"} |= \"[ERROR]\" != \"Error sending Slack Notification\"",
             "hide": false,
             "queryType": "range",
             "refId": "B"
@@ -3520,8 +3486,8 @@
               "type": "loki",
               "uid": "7894hLRVk"
             },
-            "editorMode": "builder",
-            "expr": "{__aws_cloudwatch_log_group=\"/aws/lambda/sdc_aws_processing_lambda_function\"} |~ `(\\[ERROR\\])`",
+            "editorMode": "code",
+            "expr": "{__aws_cloudwatch_log_group=\"/aws/lambda/dev-sdc_aws_processing_lambda_function\"} |~ `(\\[ERROR\\])` != \"Error sending Slack Notification\"",
             "hide": false,
             "queryType": "range",
             "refId": "B"
@@ -3575,8 +3541,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -3613,7 +3578,7 @@
               "uid": "XbbA88unk"
             },
             "dimensions": {
-              "FunctionName": "aws_sdc_sorting_lambda_function"
+              "FunctionName": "dev_aws_sdc_sorting_lambda_function"
             },
             "expression": "",
             "id": "",
@@ -3636,7 +3601,7 @@
               "uid": "XbbA88unk"
             },
             "dimensions": {
-              "FunctionName": "sdc_aws_processing_lambda_function"
+              "FunctionName": "dev-sdc_aws_processing_lambda_function"
             },
             "expression": "",
             "hide": false,
@@ -3703,8 +3668,7 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
-                  "value": null
+                  "color": "green"
                 },
                 {
                   "color": "red",
@@ -3742,7 +3706,7 @@
               "uid": "XbbA88unk"
             },
             "dimensions": {
-              "BucketName": "hermes-eea"
+              "BucketName": "dev-hermes-eea"
             },
             "expression": "",
             "id": "",
@@ -3765,7 +3729,7 @@
               "uid": "XbbA88unk"
             },
             "dimensions": {
-              "BucketName": "hermes-merit"
+              "BucketName": "dev-hermes-merit"
             },
             "expression": "",
             "hide": false,
@@ -3789,7 +3753,7 @@
               "uid": "XbbA88unk"
             },
             "dimensions": {
-              "BucketName": "hermes-nemisis"
+              "BucketName": "dev-hermes-nemisis"
             },
             "expression": "",
             "hide": false,
@@ -3813,7 +3777,7 @@
               "uid": "XbbA88unk"
             },
             "dimensions": {
-              "BucketName": "hermes-spani"
+              "BucketName": "dev-hermes-spani"
             },
             "expression": "",
             "hide": false,
@@ -3849,9 +3813,9 @@
     },
     "timepicker": {},
     "timezone": "",
-    "title": "SDC Processing",
-    "uid": "HWhbpA74z",
-    "version": 88,
+    "title": "Dev SDC Processing",
+    "uid": "DVhbpA74z",
+    "version": 1,
     "weekStart": ""
   }
 }
